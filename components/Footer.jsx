@@ -4,10 +4,10 @@ import React from 'react'
 
 export default function Footer() {
     return (
-        <footer className="bg-primary-900 text-white flex justify-between items-center pt-[35px] pb-[64px] px-[47px]">
+        <footer className="bg-primary-900 text-white flex justify-between items-center pt-[35px] pb-[64px] px-[24px] md:px-[47px]">
             <div className="flex flex-col gap-5">
                 <Image src="/images/logo 2.png" alt="" width={120} height={55} className="w-[48px] h-[22px] lg:w-[120px] lg:h-[55px]" />
-                <div className="flex gap-5 text-[7px]">
+                <div className="flex gap-2 md:gap-5 text-[7px]">
                     <Link href="/terms" className='hover:text-lightBlue'>Terms of Service</Link>
                     <Link href="/policy" className='hover:text-lightBlue'>Cookie Policy</Link>
                     <Link href="/blog" className='hover:text-lightBlue'>FAQ</Link>
