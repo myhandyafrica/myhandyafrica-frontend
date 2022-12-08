@@ -6,7 +6,7 @@ export default function Header() {
     const [showRegModal, setShowRegModal] = useState(false)
 
     return (
-        <header className="px-[49px]">
+        <header className="px-[24px] md:px-[49px]">
             <nav className="flex justify-between items-center pt-5 pr-20">
                 <Image src="/images/logo 1.png" alt="" width={120} height={55} />
                 

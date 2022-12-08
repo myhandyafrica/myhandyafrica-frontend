@@ -7,7 +7,7 @@ export default function Home() {
   return (<>
     <Header />
 
-    <section className="px-[15px] md:px-[49px] pb-[56px] flex flex-col md:flex-row justify-between">
+    <section className="px-[24px] md:px-[49px] pb-[56px] flex flex-col md:flex-row justify-between">
       <div className="flex-1 mt-[50px]">
         <h1 className="font-poppins font-semibold text-[20px] md:text-[48px] leading-[28.8px] md:leading-[69.12px]">Get access to connect with any service provider </h1>
         <p className="mt-[20px] max-w-[204px] md:max-w-[400px] font-normal text-[12px] md:text-2xl">Hire any service provider and get one at your door.</p>
@@ -63,22 +63,22 @@ export default function Home() {
       </div>
     </section>
 
-    <section className="flex flex-col lg:flex-row justify-between bg-primary-900 text-lightBlue py-[43px] px-[56px]">
+    <section className="flex flex-col lg:flex-row justify-between bg-primary-900 text-lightBlue py-[43px] px-[24px] md:px-[56px]">
       <div className="flex-1">
         <h2 className="text-[20px] md:text-4xl font-semibold text-white">How to use</h2>
         <p className="text-[16px] md:text-3xl text-white mt-[24px]">Easy steps to connect to a service provider</p>
         <div className="mt-[50px]">
           <div className="flex items-center gap-4">
             <Image src="/images/card.svg" alt="" width={65} height={65} className="w-[36px] md:w-[65px] h-[33px] md:h-[65px]" />
-            <span className="text-[12px] text-2xl font-normal">Create an account</span>
+            <span className="text-[12px] md:text-2xl font-normal">Create an account</span>
           </div>
           <div className="flex items-center gap-4 my-10">
             <Image src="/images/searchq.svg" alt="" width={65} height={65} className="w-[36px] md:w-[65px] h-[33px] md:h-[65px]" />
-            <span className="text-[12px] text-2xl font-normal">Search for which provider you need</span>
+            <span className="text-[12px] md:text-2xl font-normal">Search for which provider you need</span>
           </div>
           <div className="flex items-center gap-4">
             <Image src="/images/note.svg" alt="" width={65} height={65} className="w-[36px] md:w-[65px] h-[33px] md:h-[65px]" />
-            <span className="text-[12px] text-2xl font-normal">Drop your location and expect a service provider</span>
+            <span className="text-[12px] md:text-2xl font-normal">Drop your location and expect a service provider</span>
           </div>
         </div>
       </div>
