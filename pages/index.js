@@ -14,7 +14,7 @@ export default function Home() {
         <Button text={'Hire a provider'} bgColor={'bg-primary-900'} textColor={'text-lightBlue'} />
       </div>
       <div className="flex-1 mt-[30px] flex justify-end">
-        <Image src="/images/hero image.png" alt="" width={510} height={326} />
+        <Image src="/images/hero image.png" alt="" width={510} height={326} className="lg:w-[510px] h-[fit-content] " />
       </div>
     </section>
 
@@ -49,7 +49,7 @@ export default function Home() {
     <section className="px-[20px] lg:px-[52px]">
       <div className="flex flex-col md:flex-row items-center justify-between">
         <div className="flex-1 mt-[55px]">
-          <h1 className="font-poppins font-semibold text-[20px] md:text-[30px] lg:text-[48px] leading-[28.8px] md:leading-[40px] text-center lg:leading-[69.12px]">Building an ecosystem where access to service providers is made easy</h1>
+          <h1 className="font-poppins font-semibold text-[20px] md:text-[30px] lg:text-[48px] leading-[28.8px] md:leading-[40px] text-center md:text-start lg:leading-[69.12px]">Building an ecosystem where access to service providers is made easy</h1>
           <div className="hidden md:block"><Button text={'Become a worker'} bgColor={'bg-primary-900'} textColor={'text-lightBlue'} /></div>
         </div>
         <div className="flex-1 mt-[30px] flex justify-end">
