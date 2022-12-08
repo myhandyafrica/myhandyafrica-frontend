@@ -29,7 +29,7 @@ export default function Header() {
         </div>}
         <header className="px-[24px] md:px-[49px]">
             <nav className="flex justify-between items-center pt-5 md:pr-20">
-                <Image src="/images/logo 1.png" alt="" width={120} height={55} />
+                <Image src="/images/logo 1.png" alt="" width={120} height={55} className="w-[45px] md:w-[120px] h-[fit-content]" />
 
                 <div className="flex gap-5 lg:gap-10 items-center">
                     <Image src="/images/Search.svg" alt="" width={34} height={34} />

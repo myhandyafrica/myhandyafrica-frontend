@@ -7,11 +7,11 @@ export default function Layout({ children }) {
     return (<>
     
     <div className='py-[25px] px-[56px]'>
-        <Link href="/" className="flex justify-center lg:justify-start">
-            <Image src="/images/logo 1.png" alt="" width={120} height={55} />
+        <Link href="/" className="flex lg:justify-start">
+                <Image src="/images/logo 1.png" alt="" width={120} height={55} className="w-[45px] md:w-[120px] h-[fit-content]" />
         </Link>
         <div className="flex flex-col lg:flex-row items-center">
-            <div className="flex-1">
+            <div className="flex-1 mt-10">
                 {children}
             </div>
             <div className="flex-1 hidden lg:block">
