@@ -16,7 +16,7 @@ export default function Home() {
         </div>
       </div>
       <div className="flex-1 hidden md:flex justify-end">
-        <Image src="/images/hero image.png" alt="" width={510} height={326} className="lg:w-[510px] h-[fit-content] " />
+        <Image src="/images/hero image.svg" alt="" width={510} height={326} className="lg:w-[510px] h-[fit-content] " />
       </div>
     </section>
 
@@ -55,7 +55,7 @@ export default function Home() {
           <div className="hidden md:block md:mt-[24px] lg:mt-[41px]"><Button text={'Become a worker'} bgColor={'bg-primary-900'} textColor={'text-lightBlue'} /></div>
         </div>
         <div className="flex-1 mt-[30px] flex justify-end">
-          <Image src="/images/Rectangle 8.png" alt="" width={516} height={426} className="w-[268px] lg:w-[516px] h-[fit-content]" />
+          <Image src="/images/Rectangle 8.svg" alt="" width={516} height={426} className="w-[268px] lg:w-[516px] h-[fit-content]" />
         </div>
         <div className="md:hidden mx-auto mt-[23px]"><Button text={'Become a worker'} bgColor={'bg-primary-900'} textColor={'text-lightBlue'} /></div>
       </div>
@@ -85,7 +85,7 @@ export default function Home() {
         </div>
       </div>
       <div className="flex-[2] flex justify-center mt-20 lg:mt-0 lg:justify-end">
-        <Image src="/images/Vector.png" alt="" width={562} height={533} />
+        <Image src="/images/Vector.png" alt="" width={562} height={533} className="w-[266px] lg:w-[562px] h-[fit-content]" />
       </div>
     </section>
 
