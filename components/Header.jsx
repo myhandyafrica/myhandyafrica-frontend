@@ -28,12 +28,12 @@ export default function Header() {
             </div>
         </div>}
         <header className="px-[24px] md:px-[49px]">
-            <nav className="flex justify-between items-center pt-5 md:pr-20">
+            <nav className="flex justify-between items-center py-5 md:pr-20">
                 <Image src="/images/logo 1.png" alt="" width={120} height={55} className="w-[45px] md:w-[120px] h-[fit-content]" />
 
                 <div className="flex gap-5 lg:gap-10 items-center">
-                    <Image src="/images/Search.svg" alt="" width={34} height={34} />
-                    <Image src="/images/Menu.svg" alt="" width={34} height={34} className="lg:hidden" onClick={() => setShowMobileMenu(true) } />
+                    <Image src="/images/Search.svg" alt="" width={24} height={24} />
+                    <Image src="/images/Menu.svg" alt="" width={24} height={24} className="lg:hidden" onClick={() => setShowMobileMenu(true) } />
 
                     <div className="hidden lg:flex gap-10 items-center">
                         <div className='cursor-pointer text-2xl font-[400]' onClick={() => setShowRegModal(!showRegModal)}>Register</div>
