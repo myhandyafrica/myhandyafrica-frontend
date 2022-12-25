@@ -1,6 +1,4 @@
-export const host = process.env.NEXT_PUBLIC_ENVIRONMENT === 'development'
-  ? process.env.NEXT_PUBLIC_URL
-  : `https://tro-vestcapitalpartners.com`;
+export const host = process.env.NEXT_PUBLIC_URL;
 console.log('process.env.NEXT_PUBLIC_URL',process.env.NEXT_PUBLIC_URL)
 export const root = 'root:';
 export const UNAUHTORIZED = 'Unauthorized Access';
