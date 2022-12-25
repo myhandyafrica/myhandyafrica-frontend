@@ -1,19 +1,55 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { toast } from 'react-toastify'
 import Layout from './signup/Layout'
+import Loader from '../components/Loader'
+import { loginWorker } from '../redux/request'
+import { useRouter } from 'next/router'
 
 export default function Hire() {
+    const router = useRouter()
     const [userDetails, setUserDetails] = useState({ email: '', password: '' })
     const [showPassword, setShowPassword] = useState(false)
+    const [loading, setloading] = useState(false)
 
-    const handleSumbit = (e) => {
+    const handleSumbit = async (e) => {
         e.preventDefault();
-
-        console.log(userDetails);
+        try {
+            if (userDetails.email === '' || userDetails.password === '') {
+                return toast.warn('Login details are invalid', {
+                    customId: 'customId',
+                });
+            }
+            else {
+                setloading(true)
+                const response = await loginWorker(userDetails)
+                const { success, message } = response.data
+                if (success === true) {
+                    toast.success(message, {
+                        customId: 'customId',
+                    });
+                    setloading(false)
+                    router.push('/')
+                }
+                else {
+                    toast.warn(message, {
+                        customId: 'customId',
+                    });
+                    setloading(false)
+                }
+            }
+        } catch (error) {
+            toast.error(error.message, {
+                customId: 'customId',
+            });
+            setloading(false)
+        }
     }
 
     return (<>
+        {loading && <Loader />}
         <Layout>
             <form action="" className='text-primary-900 w-[255px] md:w-[400px] mx-auto lg:w-2/4' onSubmit={handleSumbit}>
                 <h1 className="font-[500] text-[21px] lg:text-[40px] leading-[31.5px] lg:leading-[60px] text-black">Hello,</h1>

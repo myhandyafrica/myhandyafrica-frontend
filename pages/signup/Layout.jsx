@@ -6,7 +6,9 @@ import Footer from "../../components/Footer";
 export default function Layout({ children }) {
     return (<>
     
-    <div className='py-[25px] px-[56px]'>
+        <div className='py-[25px] px-[56px]' style={{
+        position: 'relative'
+    }}>
         <Link href="/" className="flex lg:justify-start">
                 <Image src="/images/logo 1.png" alt="" width={120} height={55} className="w-[45px] md:w-[120px] h-[fit-content]" />
         </Link>

@@ -44,6 +44,7 @@ export default function Hire() {
 
                     <input required
                         onChange={(e) => { setUserDetails({ ...userDetails, phone: e.target.value }) }}
+                        maxLength={11}
                         type="phone" className="w-full px-[17px] py-[13px] lg:py-[25px] border border-[#3D3D3D] rounded-[10px] text-[15px] lg:text-[20px]" placeholder='Phone number ' />
 
                     <div className="relative w-full">
