@@ -6,11 +6,12 @@ const baseUrl = `${host}/api/v1`
 
 const headers = {
     'Content-Type': 'application/json',
-    'Authorization': `Basic ${encodedString}`
+    'Authorization': `Basic ${encodedString}`,
+    crossdomain: true
 }
 
 export const setStorageItem = (name, value) => {
-   return localStorage.setItem(name, value)
+    return localStorage.setItem(name, value)
 }
 
 export const getStorageItem = (name) => {
@@ -24,6 +25,7 @@ export const removeStorageItem = (name) => {
 export const createAccount = (data) => {
     const requestOptions = {
         method: "post",
+        mode: "cors",
         url: `${baseUrl}/account/create-account`,
         headers: headers,
         data: data
