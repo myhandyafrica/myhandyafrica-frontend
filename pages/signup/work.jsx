@@ -4,20 +4,13 @@ import { useRouter } from 'next/router';
 import React, { useState, useEffect } from 'react';
 import Layout from './Layout';
 import { toast } from 'react-toastify';
-import { createWorker } from '../../redux/request';
+import { createAccount,setStorageItem } from '../../redux/request';
 import Loader from '../../components/Loader';
 
 export default function Hire() {
 	const router = useRouter();
 
-	const [userDetails, setUserDetails] = useState({
-		fname: '',
-		email: '',
-		stateOfResidence: '',
-		phone: '',
-		password: '',
-		cpassword: '',
-	});
+	const [userDetails, setUserDetails] = useState({ fname: '', email: '', stateOfResidence: '', phone: '' });
 	const [loader, setloader] = useState(false);
 	const [showPassword, setShowPassword] = useState(false);
 	const [showCPassword, setShowCPassword] = useState(false);
@@ -26,22 +19,8 @@ export default function Hire() {
 	const checkUserInput = async () => {
 		try {
 			let valid = true;
-			const {
-				fname,
-				email,
-				stateOfResidence,
-				phone,
-				password,
-				cpassword,
-			} = userDetails;
-			if (
-				fname === '' ||
-				email === '' ||
-				stateOfResidence === '' ||
-				phone === '' ||
-				password === '' ||
-				cpassword === ''
-			) {
+			const { fname, email, stateOfResidence, phone, password, cpassword, } = userDetails;
+			if (fname === '' || email === '' || stateOfResidence === '' || phone === '' || password === '' || cpassword === '') {
 				return (valid = false);
 			}
 			if (phone.length > 11 || phone.length < 11) {
@@ -76,14 +55,7 @@ export default function Hire() {
 				return;
 			} else {
 				setloader(true);
-				const {
-					fname,
-					email,
-					stateOfResidence,
-					phone,
-					password,
-					cpassword,
-				} = userDetails;
+				const { fname, email, stateOfResidence, phone, password, cpassword } = userDetails;
 				const userData = {
 					full_name: fname,
 					email: email,
@@ -92,13 +64,14 @@ export default function Hire() {
 					password: password,
 					user_type: 'provider'
 				};
-				const response = await createWorker(userData);
+				const response = await createAccount(userData);
 				const { success, message, data } = response.data;
 				if (success === true) {
 					setloader(false);
 					toast.success(message, {
 						customId: customId,
 					});
+					setStorageItem('_MYHANDY_NUMBER',phone)
 					router.push('/verify');
 				} else {
 					setloader(false);

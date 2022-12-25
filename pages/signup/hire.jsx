@@ -3,27 +3,93 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import Layout from './Layout'
+import { toast } from 'react-toastify';
+import { createAccount, setStorageItem } from '../../redux/request';
+import Loader from '../../components/Loader';
 
+const customId = 'userid';
 export default function Hire() {
     const router = useRouter()
     const [userDetails, setUserDetails] = useState({ fname: '', email: '', stateOfResidence: '', phone: '', password: '', cpassword: '' })
     const [showPassword, setShowPassword] = useState(false)
     const [showCPassword, setShowCPassword] = useState(false)
+    const [loader, setloader] = useState(false);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (userDetails.password != userDetails.cpassword) {
-            alert("Password did not match!");
-            setShowPassword(true);
-            setShowCPassword(true);
-            return;
+    const checkUserInput = async () => {
+        try {
+            let valid = true;
+            const { fname, email, stateOfResidence, phone, password, cpassword, } = userDetails;
+            if (fname === '' || email === '' || stateOfResidence === '' || phone === '' || password === '' || cpassword === '') {
+                return (valid = false);
+            }
+            if (phone.length > 11 || phone.length < 11) {
+                toast.warn('Phone number should be 11 in length', {
+                    customId: customId,
+                });
+                setShowPassword(true);
+                setShowCPassword(true);
+                return (valid = false);
+            }
+            if (password !== cpassword) {
+                toast.warn('Password did not match!', {
+                    customId: customId,
+                });
+                setShowPassword(true);
+                setShowCPassword(true);
+                return (valid = false);
+            }
+            return valid;
+        } catch (error) {
+            toast.error(error.message, {
+                customId: customId,
+            });
         }
+    };
 
-        console.log(userDetails);
-        router.push('/verify')
-    }
+    const handleSubmit = async event => {
+        event.preventDefault();
+        try {
+            const valid = await checkUserInput();
+            if (valid === false) {
+                return;
+            } else {
+                setloader(true);
+                const { fname, email, stateOfResidence, phone, password, cpassword } = userDetails;
+                const userData = {
+                    full_name: fname,
+                    email: email,
+                    state_of_residence: stateOfResidence,
+                    mobile: phone,
+                    password: password,
+                    user_type: 'customer'
+                };
+                const response = await createAccount(userData);
+                const { success, message, data } = response.data;
+                if (success === true) {
+                    setloader(false);
+                    toast.success(message, {
+                        customId: customId,
+                    });
+                    setStorageItem('_MYHANDY_NUMBER',phone)
+                    router.push('/verify');
+                } else {
+                    setloader(false);
+                    toast.warn(message, {
+                        customId: customId,
+                    });
+                }
+            }
+        } catch (error) {
+            setloader(false);
+            toast.error(error.message, {
+                customId: customId,
+            });
+        }
+    };
+
 
     return (<>
+        {loader && <Loader />}
         <Layout>
             <form action="" className='text-primary-900 w-[255px] md:w-[450px] mx-auto lg:w-2/4' onSubmit={handleSubmit}>
                 <h1 className="font-[500] text-[21px] lg:text-[40px] leading-[31.5px] lg:leading-[60px] text-black">Hello,</h1>
@@ -54,9 +120,9 @@ export default function Hire() {
                         {showPassword ? <>
                             <Image src="/images/hidden.png" alt="" width={24} height={24} className="cursor-pointer absolute top-[50%] -translate-y-[50%] right-5" onClick={() => setShowPassword(false)} />
                         </> :
-                        <>
-                        <Image src="/images/eye.png" alt="" width={24} height={24} className="cursor-pointer absolute top-[50%] -translate-y-[50%] right-5" onClick={() => setShowPassword(true)} />                        
-                        </>}
+                            <>
+                                <Image src="/images/eye.png" alt="" width={24} height={24} className="cursor-pointer absolute top-[50%] -translate-y-[50%] right-5" onClick={() => setShowPassword(true)} />
+                            </>}
                     </div>
 
                     <div className="relative w-full">
@@ -66,9 +132,9 @@ export default function Hire() {
                         {showCPassword ? <>
                             <Image src="/images/hidden.png" alt="" width={24} height={24} className="cursor-pointer absolute top-[50%] -translate-y-[50%] right-5" onClick={() => setShowCPassword(false)} />
                         </> :
-                        <>
-                        <Image src="/images/eye.png" alt="" width={24} height={24} className="cursor-pointer absolute top-[50%] -translate-y-[50%] right-5" onClick={() => setShowCPassword(true)} />                        
-                        </>}
+                            <>
+                                <Image src="/images/eye.png" alt="" width={24} height={24} className="cursor-pointer absolute top-[50%] -translate-y-[50%] right-5" onClick={() => setShowCPassword(true)} />
+                            </>}
                     </div>
 
                     <button type='submit' className="w-full py-[10px] lg:py-[13px] border border-[#3D3D3D] font-[500] text-center rounded-[10px] text-[18px] lg:text-[36px] text-black">Register</button>
