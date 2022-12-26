@@ -1,4 +1,4 @@
-export const host = process.env.NEXT_PUBLIC_URL;
+export const host = process.env.NEXT_PUBLIC_ENVIRONMENT === 'development' ? process.env.NEXT_PUBLIC_URL: process.env.NEXT_LIVE_URL;
 console.log('NEXT_PUBLIC_URL',process.env.NEXT_PUBLIC_URL)
 export const root = 'root:';
 export const UNAUHTORIZED = 'Unauthorized Access';
