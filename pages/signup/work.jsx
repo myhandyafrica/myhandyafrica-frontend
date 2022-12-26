@@ -205,7 +205,6 @@ export default function Hire() {
 							/>
 							{showCPassword
 								? <div>
-									``
 									<Image
 										src="/images/hidden.png"
 										alt=""
