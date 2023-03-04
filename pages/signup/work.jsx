@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import React, { useState, useEffect } from 'react';
 import Layout from './Layout';
 import { toast } from 'react-toastify';
-import { createAccount,setStorageItem } from '../../redux/request';
+import { createAccount, setStorageItem } from '../../redux/request';
 import Loader from '../../components/Loader';
 
 export default function Hire() {
@@ -71,7 +71,7 @@ export default function Hire() {
 					toast.success(message, {
 						customId: customId,
 					});
-					setStorageItem('_MYHANDY_NUMBER',phone)
+					setStorageItem('_MYHANDY_NUMBER', phone)
 					router.push('/verify');
 				} else {
 					setloader(false);
@@ -94,14 +94,12 @@ export default function Hire() {
 			<Layout>
 				<form
 					action=""
-					className="text-primary-900 w-[255px] md:w-[450px] mx-auto lg:w-2/4"
+					className="text-primary-900"
 					onSubmit={handleSubmit}
 				>
-					<h1 className="font-[500] text-[21px] lg:text-[40px] leading-[31.5px] lg:leading-[60px] text-black">
-						Hello,
-					</h1>
-					<div className="flex flex-col gap-[35px] mt-[24px]">
-						<p className="text-[10px] md:text-[15px] lg:text-[20px] text-black">
+					<div className="">
+						<h1 className="font-medium text-[30px] leading-[48px]">Hey</h1>
+						<p className="mt-3 text-[18px]">
 							Please register to continue to
 							{' '}
 							<span className="font-bold hover:text-primary-100">work</span>
@@ -115,14 +113,16 @@ export default function Hire() {
 								REGISTER TO HIRE
 							</Link>
 						</p>
+					</div>
 
+					<div className="flex flex-wrap justify-center md:justify-start gap-5 mt-10">
 						<input
 							required
 							onChange={e => {
 								setUserDetails({ ...userDetails, fname: e.target.value });
 							}}
 							type="text"
-							className="w-full px-[17px] py-[13px] lg:py-[25px] border border-[#3D3D3D] rounded-[10px] text-[15px] lg:text-[20px]"
+							className="bg-[#131725] text-white px-[28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-2xl"
 							placeholder="Full name"
 						/>
 
@@ -132,7 +132,7 @@ export default function Hire() {
 								setUserDetails({ ...userDetails, email: e.target.value });
 							}}
 							type="email"
-							className="w-full px-[17px] py-[13px] lg:py-[25px] border border-[#3D3D3D] rounded-[10px] text-[15px] lg:text-[20px]"
+							className="bg-[#131725] text-white px-[28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-2xl"
 							placeholder="Email"
 						/>
 
@@ -145,7 +145,7 @@ export default function Hire() {
 								});
 							}}
 							type="text"
-							className="w-full px-[17px] py-[13px] lg:py-[25px] border border-[#3D3D3D] rounded-[10px] text-[15px] lg:text-[20px]"
+							className="bg-[#131725] text-white px-[28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-2xl"
 							placeholder="State of residence"
 						/>
 
@@ -156,18 +156,18 @@ export default function Hire() {
 							}}
 							maxLength={11}
 							type="phone"
-							className="w-full px-[17px] py-[13px] lg:py-[25px] border border-[#3D3D3D] rounded-[10px] text-[15px] lg:text-[20px]"
+							className="bg-[#131725] text-white px-[28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-2xl"
 							placeholder="Phone number "
 						/>
 
-						<div className="relative w-full">
+						<div className="relative w-[280px] mx-auto md:mx-0 md:w-[300px]">
 							<input
 								required
 								onChange={e => {
 									setUserDetails({ ...userDetails, password: e.target.value });
 								}}
 								type={!showPassword ? 'password' : 'text'}
-								className="px-[17px] py-[13px] lg:py-[25px] border border-[#3D3D3D] rounded-[10px] text-[15px] lg:text-[20px] w-full pr-16"
+								className="bg-[#131725] text-white px-[28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-2xl"
 								placeholder="Password "
 							/>
 							{showPassword
@@ -193,14 +193,14 @@ export default function Hire() {
 								</div>}
 						</div>
 
-						<div className="relative w-full">
+						<div className="relative w-[280px] mx-auto md:mx-0 md:w-[300px]">
 							<input
 								required
 								onChange={e => {
 									setUserDetails({ ...userDetails, cpassword: e.target.value });
 								}}
 								type={!showCPassword ? 'password' : 'text'}
-								className="px-[17px] py-[13px] lg:py-[25px] border border-[#3D3D3D] rounded-[10px] text-[15px] lg:text-[20px] w-full pr-16"
+								className="bg-[#131725] text-white px-[28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-2xl"
 								placeholder="Confirm password "
 							/>
 							{showCPassword
@@ -226,17 +226,19 @@ export default function Hire() {
 								</div>}
 						</div>
 
-						<button
-							type="submit"
-							className="w-full py-[10px] lg:py-[13px] border border-[#3D3D3D] font-[500] text-center rounded-[10px] text-[18px] lg:text-[36px] text-black"
-						>
-							Register
-						</button>
-						<div className="text-[10px] md:text-[15px] lg:text-[20px] text-black">
-							Have an account?{' '}
-							<Link href="/login" className="font-bold hover:text-primary-100">
-								LOGIN
-							</Link>
+						<div className="flex flex-col md:flex-row lg:flex-col xl:flex-row items-center gap-6">
+							<button
+								type="submit"
+								className="max-w-full bg-[#131725] text-white px-[28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-2xl"
+							>
+								Register
+							</button>
+							<div className="text-[10px] md:text-[15px] lg:text-[20px] text-black">
+								Have an account?{' '}
+								<Link href="/login" className="font-bold hover:text-primary-100">
+									LOGIN
+								</Link>
+							</div>
 						</div>
 					</div>
 				</form>

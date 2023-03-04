@@ -16,7 +16,7 @@ export default function Home() {
         </div>
       </div>
       <div className="flex-1 hidden md:flex justify-end">
-        <Image src="/images/hero image.svg" alt="" width={510} height={326} className="lg:w-[510px] h-[fit-content] " />
+        <Image src="/images/hero image2.svg" alt="" width={510} height={326} className="lg:w-[510px] h-[fit-content] " />
       </div>
     </section>
 

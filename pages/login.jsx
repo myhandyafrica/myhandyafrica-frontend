@@ -25,6 +25,7 @@ export default function Hire() {
             else {
                 setloading(true)
                 const response = await loginWorker(userDetails)
+                console.log(response);
                 const { success, message } = response.data
                 if (success === true) {
                     toast.success(message, {
@@ -58,18 +59,33 @@ export default function Hire() {
 
                     <input required
                         onChange={(e) => { setUserDetails({ ...userDetails, email: e.target.value }) }}
-                        type="email" className="w-full px-[17px] py-[13px] lg:py-[25px] border border-[#3D3D3D] rounded-[10px] text-[15px] lg:text-[20px]" placeholder='Email' />
+                        type="email" className="bg-[#131725] text-white px-[28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-2xl" placeholder='Email' />
 
-                    <div className="relative w-full">
+                    <div className="relative w-[280px] mx-auto md:mx-0 md:w-[300px]">
                         <input required
                             onChange={(e) => { setUserDetails({ ...userDetails, password: e.target.value }) }}
-                            type={!showPassword ? 'password' : 'text'} className="w-full px-[17px] py-[13px] lg:py-[25px] border border-[#3D3D3D] rounded-[10px] text-[15px] lg:text-[20px] pr-16" placeholder='Password ' />
+                            type={!showPassword ? 'password' : 'text'} className="bg-[#131725] text-white px-[28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-2xl pr-16" placeholder='Password ' />
                         {showPassword ? <>
                             <Image src="/images/hidden.png" alt="" width={24} height={24} className="cursor-pointer absolute top-[50%] -translate-y-[50%] right-5" onClick={() => setShowPassword(false)} />
                         </> :
                             <>
                                 <Image src="/images/eye.png" alt="" width={24} height={24} className="cursor-pointer absolute top-[50%] -translate-y-[50%] right-5" onClick={() => setShowPassword(true)} />
                             </>}
+                    </div>
+
+                    <div className="flex flex-col md:flex-row lg:flex-col xl:flex-row items-center gap-6">
+                        <button
+                            type="submit"
+                            className="max-w-full bg-[#131725] text-white px-[28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-2xl"
+                        >
+                            Login
+                        </button>
+                        <div className="text-[10px] md:text-[15px] lg:text-[20px] text-black">
+                            Have an account?{' '}
+                            <Link href="/signup" className="font-bold hover:text-primary-100">
+                                REGISTER HERE
+                            </Link>
+                        </div>
                     </div>
 
                     <button type='submit' className="py-[10px] lg:py-[13px] w-full border border-[#3D3D3D] font-[500] text-center rounded-[10px] text-[18px] lg:text-[36px] text-black">Login</button>

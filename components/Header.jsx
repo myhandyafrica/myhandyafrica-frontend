@@ -32,11 +32,13 @@ export default function Header() {
                 <Image src="/images/logo 1.png" alt="" width={120} height={55} className="w-[45px] md:w-[120px] h-[fit-content]" />
 
                 <div className="flex gap-5 lg:gap-10 items-center">
-                    <Image src="/images/Search.svg" alt="" width={24} height={24} />
+                    <Image src="/images/Search.svg" alt="" width={24} height={24} className="-mb-1" />
+
                     <Image src="/images/Menu.svg" alt="" width={24} height={24} className="lg:hidden" onClick={() => setShowMobileMenu(true) } />
 
                     <div className="hidden lg:flex gap-10 items-center">
-                        <div className='cursor-pointer text-2xl font-[400]' onClick={() => setShowRegModal(!showRegModal)}>Register</div>
+                        {/* <div className='cursor-pointer text-2xl font-[400]' onClick={() => setShowRegModal(!showRegModal)}>Register</div> */}
+                        <Link href="/signup" className='text-2xl font-[400]'>Register</Link>
                         <Link href="/login" className='text-2xl font-[400]'>Login</Link>
                     </div>
                 </div>
@@ -44,14 +46,14 @@ export default function Header() {
 
 
             {showRegModal && <div className="px-[129px] py-20 relative text-[24px]">
-                <Image src="/images/Close.png" alt='' width={38} height={38} className="absolute top-5 right-10 cursor-pointer" onClick={() => setShowRegModal(!showRegModal)} />
+                <Image src="/images/Close.png" alt='' width={20} height={20} className="absolute top-5 right-10 cursor-pointer" onClick={() => setShowRegModal(!showRegModal)} />
                 <div className="flex justify-between">
                     <Link href="/signup/hire" className="flex items-center gap-3">Sign up to hire
-                        <Image src="/images/Arrow right alt.png" alt='' width={38} height={38} className="mt-1" />
+                        <Image src="/images/Arrow right alt.png" alt='' width={20} height={20} className="mt-1" />
                     </Link>
 
                     <Link href="/signup/work" className="flex items-center gap-3">Sign up to work
-                        <Image src="/images/Arrow right alt.png" alt='' width={38} height={38} className="mt-1" />
+                        <Image src="/images/Arrow right alt.png" alt='' width={20} height={20} className="mt-1" />
                     </Link>
                 </div>
             </div>}
