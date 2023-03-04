@@ -8,7 +8,7 @@ export default function Layout({ children }) {
     const router = useRouter()
 
     return (<>
-        <div className="flex flex-col lg:flex-row font-poppins">
+        <div className="flex flex-col lg:flex-row font-poppins h-screen">
             <div className="flex-1 px-4 md:px-10 h-screen overflow-y-auto py-10">
                 <Link href="/" className="flex lg:justify-start">
                     <Image src="/images/logo 1.png" alt="" width={120} height={55} className="w-[45px] md:w-[120px] h-[fit-content]" />
