@@ -12,7 +12,7 @@ export default function Header() {
 
     useEffect(() => {
       if(isClickedOutside){
-          setShowSearchModal(false)
+        setShowSearchModal(false)
       }
     }, [isClickedOutside])
     
