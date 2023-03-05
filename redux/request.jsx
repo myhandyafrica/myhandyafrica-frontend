@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { host } from '../constants'
-const encodedString = Buffer.from('Myhandyafrica@gmail.com:e2b1b93e3082485a308992c8c30e06c1').toString('base64');
-
+const encodedString = Buffer.from(`${process.env.NEXT_PUBLIC_AUTH_EMAIL}:${process.env.NEXT_PUBLIC_AUTH_PASSWORD}`).toString('base64');
 const baseUrl = `${host}/api/v1`
 
 const headers = {
