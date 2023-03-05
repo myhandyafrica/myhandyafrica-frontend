@@ -93,7 +93,7 @@ export default function Hire() {
         <Layout>
             <form action="" className='text-primary-900' onSubmit={handleSubmit}>
 
-                <div className="">
+                <div className="flex flex-col items-center lg:items-start text-center lg:text-start">
                     <h1 className="font-medium text-[30px] leading-[48px]">Hey</h1>
                     <p className="mt-3 text-[18px]">
                         Please register to continue to <span className='font-bold hover:text-primary-100'>hire</span> or click here to <Link href="/signup/work" className='font-bold hover:text-primary-100'>REGISTER TO WORK</Link>
@@ -147,7 +147,7 @@ export default function Hire() {
                     <div className="flex flex-col md:flex-row lg:flex-col xl:flex-row items-center gap-6">
                         <button
                             type="submit"
-                            className="max-w-full bg-[#131725] text-white px-[28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-2xl"
+                            className="max-w-full border border-primary-900 text-primary-900 px-[28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-2xl"
                         >
                             Register
                         </button>
