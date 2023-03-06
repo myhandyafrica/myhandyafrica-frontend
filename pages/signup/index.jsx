@@ -10,7 +10,7 @@ export default function SignUp() {
                 <p className="text-[14px]">Kindly select what option you belong to</p>
             </div>
 
-            <div className="flex flex-col items-center lg:items-start gap-8 mt-10">
+            <div className="flex flex-col items-center lg:items-start gap-8 mt-7">
                 <Link href="/signup/work" className='bg-[#131725] text-white px-[28px] py-[15px] w-[300px] rounded-2xl'>
                     <div className="">
                         <h3 className='text-[14px] font-bold'>I’m a provider</h3>
@@ -24,7 +24,7 @@ export default function SignUp() {
                     </div>
                 </Link>
             </div>
-            <p className="mt-10 text-[14px] text-center lg:text-start">Already have an account? <Link href='/login' className='font-bold'>Sign in</Link></p>
+            <p className="mt-4 text-[14px] text-center lg:text-start">Already have an account? <Link href='/login' className='font-bold'>Sign in</Link></p>
         </Layout>
     )
 }

@@ -98,31 +98,20 @@ export default function Hire() {
 					onSubmit={handleSubmit}
 				>
 					<div className="flex flex-col items-center lg:items-start text-center lg:text-start">
-						<h1 className="font-medium text-[30px] leading-[48px]">Hey</h1>
-						<p className="mt-3 text-[18px]">
-							Please register to continue to
-							{' '}
-							<span className="font-bold hover:text-primary-100">work</span>
-							{' '}
-							or
-							click here to{' '}
-							<Link
-								href="/signup/hire"
-								className="font-bold hover:text-primary-100"
-							>
-								REGISTER TO HIRE
-							</Link>
+						<h1 className="font-medium text-[22px] lg:text-[30px] lg:leading-[48px]">Hey</h1>
+						<p className="text-[14px]">
+							Kindly provide necessary information
 						</p>
 					</div>
 
-					<div className="flex flex-wrap justify-center md:justify-start gap-5 mt-10">
+					<div className="flex flex-wrap justify-center md:justify-start gap-5 mt-7">
 						<input
 							required
 							onChange={e => {
 								setUserDetails({ ...userDetails, fname: e.target.value });
 							}}
 							type="text"
-							className="bg-[#131725] text-white px-[28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-2xl"
+							className="bg-[#131725] text-white text-[12px] font-normal px-[28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-[10px]"
 							placeholder="Full name"
 						/>
 
@@ -132,21 +121,8 @@ export default function Hire() {
 								setUserDetails({ ...userDetails, email: e.target.value });
 							}}
 							type="email"
-							className="bg-[#131725] text-white px-[28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-2xl"
+							className="bg-[#131725] text-white text-[12px] font-normal px-[28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-[10px]"
 							placeholder="Email"
-						/>
-
-						<input
-							required
-							onChange={e => {
-								setUserDetails({
-									...userDetails,
-									stateOfResidence: e.target.value,
-								});
-							}}
-							type="text"
-							className="bg-[#131725] text-white px-[28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-2xl"
-							placeholder="State of residence"
 						/>
 
 						<input
@@ -156,7 +132,7 @@ export default function Hire() {
 							}}
 							maxLength={11}
 							type="phone"
-							className="bg-[#131725] text-white px-[28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-2xl"
+							className="bg-[#131725] text-white text-[12px] font-normal px-[28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-[10px]"
 							placeholder="Phone number "
 						/>
 
@@ -167,7 +143,7 @@ export default function Hire() {
 									setUserDetails({ ...userDetails, password: e.target.value });
 								}}
 								type={!showPassword ? 'password' : 'text'}
-								className="bg-[#131725] text-white px-[28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-2xl"
+								className="bg-[#131725] text-white text-[12px] font-normal px-[28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-[10px]"
 								placeholder="Password "
 							/>
 							{showPassword
@@ -175,8 +151,8 @@ export default function Hire() {
 									<Image
 										src="/images/hidden.png"
 										alt=""
-										width={24}
-										height={24}
+										width={20}
+										height={20}
 										className="cursor-pointer absolute top-[50%] -translate-y-[50%] right-5"
 										onClick={() => setShowPassword(false)}
 									/>
@@ -185,8 +161,8 @@ export default function Hire() {
 									<Image
 										src="/images/eye.png"
 										alt=""
-										width={24}
-										height={24}
+										width={20}
+										height={20}
 										className="cursor-pointer absolute top-[50%] -translate-y-[50%] right-5"
 										onClick={() => setShowPassword(true)}
 									/>
@@ -200,7 +176,7 @@ export default function Hire() {
 									setUserDetails({ ...userDetails, cpassword: e.target.value });
 								}}
 								type={!showCPassword ? 'password' : 'text'}
-								className="bg-[#131725] text-white px-[28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-2xl"
+								className="bg-[#131725] text-white text-[12px] font-normal px-[28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-[10px]"
 								placeholder="Confirm password "
 							/>
 							{showCPassword
@@ -208,8 +184,8 @@ export default function Hire() {
 									<Image
 										src="/images/hidden.png"
 										alt=""
-										width={24}
-										height={24}
+										width={20}
+										height={20}
 										className="cursor-pointer absolute top-[50%] -translate-y-[50%] right-5"
 										onClick={() => setShowCPassword(false)}
 									/>
@@ -218,8 +194,8 @@ export default function Hire() {
 									<Image
 										src="/images/eye.png"
 										alt=""
-										width={24}
-										height={24}
+										width={20}
+										height={20}
 										className="cursor-pointer absolute top-[50%] -translate-y-[50%] right-5"
 										onClick={() => setShowCPassword(true)}
 									/>
@@ -229,7 +205,7 @@ export default function Hire() {
 						<div className="flex flex-col md:flex-row lg:flex-col xl:flex-row items-center gap-6">
 							<button
 								type="submit"
-								className="max-w-full border border-primary-900 text-primary-900 px-[28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-2xl"
+								className="max-w-full border border-primary-900 text-primary-900 p text-[12px] font-normalx-[28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-[10px]"
 							>
 								Register
 							</button>

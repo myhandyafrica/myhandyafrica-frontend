@@ -53,9 +53,9 @@ export default function Hire() {
         {loading && <Loader />}
         <Layout>
             <form action="" className='text-primary-900' onSubmit={handleSumbit}>
-                <div className="">
-                    <h1 className="font-medium text-[30px] leading-[48px]">Hey</h1>
-                    <p className="mt-3 text-[18px]">
+                <div className="flex flex-col items-center lg:items-start text-center lg:text-start">
+                    <h1 className="font-medium text-[22px] lg:text-[30px] lg:leading-[48px]">Hey</h1>
+                    <p className="text-[14px]">
                         Please login to continue
                     </p>
                 </div>
@@ -64,25 +64,25 @@ export default function Hire() {
 
                     <input required
                         onChange={(e) => { setUserDetails({ ...userDetails, email: e.target.value }) }}
-                        type="email" className="bg-[#131725] text-white px-[28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-2xl" placeholder='Email' />
+                        type="email" className="bg-[#131725] text-white font-normal text-[12px] px-[28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-[10px]" placeholder='Email' />
 
                     <div className="relative w-[280px] mx-auto md:mx-0 md:w-[300px]">
                         <input required
                             onChange={(e) => { setUserDetails({ ...userDetails, password: e.target.value }) }}
                             type={!showPassword ? 'password' : 'text'} 
-                            className="bg-[#131725] text-white px-[28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-2xl" placeholder='Password ' />
+                            className="bg-[#131725] text-white font-normal text-[12px] px-[28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-[10px]" placeholder='Password ' />
                         {showPassword ? <>
-                            <Image src="/images/hidden.png" alt="" width={24} height={24} className="cursor-pointer absolute top-[50%] -translate-y-[50%] right-5" onClick={() => setShowPassword(false)} />
+                            <Image src="/images/hidden.png" alt="" width={20} height={20} className="cursor-pointer absolute top-[50%] -translate-y-[50%] right-5" onClick={() => setShowPassword(false)} />
                         </> :
                             <>
-                                <Image src="/images/eye.png" alt="" width={24} height={24} className="cursor-pointer absolute top-[50%] -translate-y-[50%] right-5" onClick={() => setShowPassword(true)} />
+                                <Image src="/images/eye.png" alt="" width={20} height={20} className="cursor-pointer absolute top-[50%] -translate-y-[50%] right-5" onClick={() => setShowPassword(true)} />
                             </>}
                     </div>
 
                     <div className="flex flex-col md:flex-row lg:flex-col xl:flex-row items-center gap-6">
                         <button
                             type="submit"
-                            className="max-w-full bg-[#131725] text-white px-[28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-2xl"
+                            className="max-w-full border border-primary-900 text-primary-900 px-[28px] text-[12px] font-bold py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-[10px]"
                         >
                             Login
                         </button>

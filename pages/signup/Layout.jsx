@@ -15,7 +15,7 @@ export default function Layout({ children }) {
                     <Image src="/images/logo 1.png" alt="" width={120} height={55} className="w-[45px] md:w-[120px] h-[fit-content]" />
                 </Link> */}
                 <Header auth={true} />
-                <div className="h-20"></div>
+                <div className="h-8"></div>
                 {children}
                 <div className="h-10"></div>
             </div>
