@@ -20,23 +20,23 @@ export default function Verify() {
     }
 
     return (<>
-        <div className='py-[25px] px-[56px]'>
+        <div className='py-[25px] px-[56px] font-poppins'>
             <Link href="/" className="flex lg:justify-start">
                 <Image src="/images/logo 1.png" alt="" width={120} height={55} className="w-[45px] md:w-[120px] h-[fit-content]" />
             </Link>
             <form className="my-[58px] flex flex-col justify-center items-center" onSubmit={handleSubmit}>
-                <Image src="/images/padlock-icon.png" alt="" width={70} height={80} />
-                <h3 className="font-[600] text-[18px] lg:text-[28px] leading-[60px] my-[10px]">Forgot Password</h3>
+                <Image src="/images/padlock-icon.png" alt="" width={75} height={75} />
+                <h3 className="font-[600] text-[18px] lg:text-[28px] leading-[60px]">Forgot Password</h3>
                 <p className="text-[14px] leading-[21px] md:text-[20px] lg:px-[25%] text-center">Please enter the email associated with your Myhandy account. We will send a link to this email address to reset your password.</p>
 
                 <div className="mt-5">
                     <input required
                         onChange={(e) => { setEmail(e.target.value) }}
-                        type="email" className='focus bg-none outline-none border border-primary-900 py-3 px-5 rounded-lg w-[300px] lg:w-[450px]' />
+                        type="email" className='focus bg-none outline-none border border-primary-900 py-3 px-5 rounded-lg w-[300px] lg:w-[450px] bg-transparent' />
                 </div>
 
-                <button className='mt-6 rounded-[10px] lg:rounded-[20px] bg-primary-900 text-white w-[150px] h-[50px] grid place-items-center font-[500] text-[12px] lg:text-[24px]'>Reset password</button>
-                <Link href="/login" className='mt-6 rounded-[10px] lg:rounded-[20px] bg-white border border-primary-900 text-primary-900 w-[150px] h-[50px] grid place-items-center font-[500] text-[12px] lg:text-[24px]'>Login</Link>
+                <button className='mt-6 rounded-[10px] lg:rounded-[10px] bg-primary-900 text-white w-[150px] h-[50px] grid place-items-center font-[500] text-[12px] lg:text-[24px]'>Reset password</button>
+                <Link href="/login" className='mt-[15px] rounded-[10px] lg:rounded-[20px] bg-transparent border border-primary-900 text-primary-900 w-[150px] h-[50px] grid place-items-center font-[500] text-[12px] lg:text-[24px]'>Login</Link>
             </form>
         </div>
         <Footer />
