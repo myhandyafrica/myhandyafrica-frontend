@@ -11,13 +11,13 @@ export default function SignUp() {
             </div>
 
             <div className="flex flex-col items-center lg:items-start gap-8 mt-7">
-                <Link href="/signup/work" className='bg-[#131725] text-white px-[28px] py-[15px] w-[300px] rounded-2xl'>
+                <Link href="/signup/hire" onClick={() => localStorage.setItem('userType', 'provider')} className='bg-[#131725] text-white px-[28px] py-[15px] w-[300px] rounded-2xl'>
                     <div className="">
                         <h3 className='text-[14px] font-bold'>I’m a provider</h3>
                         <p className="text-[10px] font-thin">I’m an provider looking for a  job</p>
                     </div>
                 </Link>
-                <Link href="/signup/hire" className='bg-[#131725] text-white px-[28px] py-[15px] w-[300px] rounded-2xl'>
+                <Link href="/signup/hire" onClick={() => localStorage.setItem('userType', 'customer')} className='bg-[#131725] text-white px-[28px] py-[15px] w-[300px] rounded-2xl'>
                     <div className="">
                         <h3 className='text-[14px] font-bold'>I’m a Customer</h3>
                         <p className="text-[10px] font-thin">I’m a Customer looking for a provider</p>

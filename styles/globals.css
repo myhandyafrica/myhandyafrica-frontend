@@ -4,6 +4,9 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
+body {
+  background: #F6F6F6
+}
 
 .carousel-root {
   width: 64% !important;

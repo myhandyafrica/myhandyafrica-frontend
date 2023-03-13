@@ -22,7 +22,7 @@ export default function Verify() {
             return focus.removeEventListener("keyup", () => { })
         });
         let mobile = getStorageItem('_MYHANDY_NUMBER')
-        mobile = mobile.substring(1)
+        mobile = mobile?.substring(1)
         mobile  = `+234${mobile}`
         setmobileNumber(mobile)
     }, [])
@@ -31,6 +31,7 @@ export default function Verify() {
         e.preventDefault();
         resendOTP()
         console.log(verificationNumber);
+        // if user.user_type === 'provider'
         router.push('/')
     }
 

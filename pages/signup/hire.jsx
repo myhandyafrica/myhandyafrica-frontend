@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Layout from './Layout'
 import { toast } from 'react-toastify';
 import { createAccount, setStorageItem } from '../../redux/request';
@@ -9,17 +9,25 @@ import Loader from '../../components/Loader';
 
 const customId = 'userid';
 export default function Hire() {
+    const [userType, setUserType] = useState('customer')
     const router = useRouter()
-    const [userDetails, setUserDetails] = useState({ fname: '', email: '', stateOfResidence: '', phone: '', password: '', cpassword: '' })
+    const [userDetails, setUserDetails] = useState({ fname: '', email: '', phone: '', password: '', cpassword: '' })
     const [showPassword, setShowPassword] = useState(false)
     const [showCPassword, setShowCPassword] = useState(false)
     const [loader, setloader] = useState(false);
 
+    useEffect(() => {
+        const userType = localStorage.getItem('userType')
+        if (userType) {
+            setUserType(userType)
+        }
+    }, [])
+
     const checkUserInput = async () => {
         try {
             let valid = true;
-            const { fname, email, stateOfResidence, phone, password, cpassword, } = userDetails;
-            if (fname === '' || email === '' || stateOfResidence === '' || phone === '' || password === '' || cpassword === '') {
+            const { fname, email, phone, password, cpassword, } = userDetails;
+            if (fname === '' || email === '' || phone === '' || password === '' || cpassword === '') {
                 return (valid = false);
             }
             if (phone.length > 11 || phone.length < 11) {
@@ -54,16 +62,17 @@ export default function Hire() {
                 return;
             } else {
                 setloader(true);
-                const { fname, email, stateOfResidence, phone, password, cpassword } = userDetails;
+                const { fname, email, phone, password } = userDetails;
                 const userData = {
                     full_name: fname,
                     email: email,
-                    state_of_residence: stateOfResidence,
                     mobile: phone,
                     password: password,
-                    user_type: 'customer'
+                    user_type: userType
                 };
+
                 const response = await createAccount(userData);
+                // console.log(response);
                 const { success, message, data } = response.data;
                 if (success === true) {
                     setloader(false);
@@ -78,6 +87,7 @@ export default function Hire() {
                         customId: customId,
                     });
                 }
+
             }
         } catch (error) {
             setloader(false);
@@ -121,7 +131,7 @@ export default function Hire() {
                     <div className="relative w-[280px] mx-auto md:mx-0 md:w-[300px]">
                         <input required
                             onChange={(e) => { setUserDetails({ ...userDetails, password: e.target.value }) }}
-                            type={!showPassword ? 'password' : 'text'} 
+                            type={!showPassword ? 'password' : 'text'}
                             className="bg-[#131725] text-white px-[28px] text-[12px] font-normal28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-[10px]" placeholder='Password ' />
                         {showPassword ? <>
                             <Image src="/images/hidden.png" alt="" width={20} height={20} className="cursor-pointer absolute top-[50%] -translate-y-[50%] right-5" onClick={() => setShowPassword(false)} />
@@ -134,7 +144,7 @@ export default function Hire() {
                     <div className="relative w-[280px] mx-auto md:mx-0 md:w-[300px]">
                         <input required
                             onChange={(e) => { setUserDetails({ ...userDetails, cpassword: e.target.value }) }}
-                            type={!showCPassword ? 'password' : 'text'} 
+                            type={!showCPassword ? 'password' : 'text'}
                             className="bg-[#131725] text-white px-[28px] text-[12px] font-normal28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-[10px]" placeholder='Confirm password ' />
                         {showCPassword ? <>
                             <Image src="/images/hidden.png" alt="" width={20} height={20} className="cursor-pointer absolute top-[50%] -translate-y-[50%] right-5" onClick={() => setShowCPassword(false)} />
@@ -149,7 +159,7 @@ export default function Hire() {
                             type="submit"
                             className="max-w-full border border-primary-900 text-primary-900 px-[28px] text-[12px] font-normal28px] py-[15px] w-[280px] mx-auto md:mx-0 md:w-[300px] rounded-[10px]"
                         >
-                            Register
+                            Next
                         </button>
                         <div className="text-[10px] md:text-[15px] lg:text-[20px] text-black">
                             Have an account?{' '}
