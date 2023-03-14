@@ -45,8 +45,6 @@ export default function Metadata({ children }) {
         bioPhoneNumber: '',
         email: '',
         address: '',
-        contactEmail: '',
-        contactPhoneNumber: '',
         contactAltPhoneNumber: '',
         certifications: '',
     })
@@ -78,12 +76,15 @@ export default function Metadata({ children }) {
                         <input type="text" name="" id="" onChange={(e) => { setInputs({ ...inputs, firstName: e.target.value }) }} value={inputs.firstName}
                             placeholder='Full name' className='rounded-[10px] bg-transparent border border-[#131725] to-primary-900 px-4 h-16 w-full flex items-center text-sm' />
                     </div>
-                    <div className="flex items-center gap-4 md:gap-10">
+                    <div className="flex items-center gap-4 md:gap-10 mb-8">
                         <input type="tel" name="" id="" onChange={(e) => { setInputs({ ...inputs, bioPhoneNumber: e.target.value }) }} value={inputs.bioPhoneNumber}
                             placeholder='Phone number' className='rounded-[10px] bg-transparent border border-[#131725] to-primary-900 px-4 h-16 w-full flex items-center text-sm' />
-                        <input type="email" name="" id="" onChange={(e) => { setInputs({ ...inputs, email: e.target.value }) }} value={inputs.email}
-                            placeholder='Email' className='rounded-[10px] bg-transparent border border-[#131725] to-primary-900 px-4 h-16 w-full flex items-center text-sm' />
+                        <input type="tel" name="" id="" onChange={(e) => { setInputs({ ...inputs, contactAltPhoneNumber: e.target.value }) }} value={inputs.contactAltPhoneNumber}
+                            placeholder='Alternative phone number' className='rounded-[10px] bg-transparent border border-[#131725] to-primary-900 px-4 h-16 w-full flex items-center text-sm' />
                     </div>
+                    <input type="email" name="" id="" onChange={(e) => { setInputs({ ...inputs, email: e.target.value }) }} value={inputs.email}
+                        placeholder='Email' className='rounded-[10px] bg-transparent border border-[#131725] to-primary-900 px-4 h-16 w-full flex items-center text-sm' />
+
                 </div>
 
                 <div className="mb-12">
@@ -114,20 +115,6 @@ export default function Metadata({ children }) {
                                     setClose={setShowLGAOptions}
                                     options={options.LGAOptions} />}
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="mb-12">
-                    <h1 className="text-primary-900 text-lg font-bold mb-7">Contact information</h1>
-                    <div className="flex flex-col md:flex-row items-center gap-4 md:gap-10">
-                        <input type="email" name="" id="" onChange={(e) => { setInputs({ ...inputs, contactEmail: e.target.value }) }} value={inputs.contactEmail}
-                            placeholder='Contact email address' className='md:flex-1 rounded-[10px] bg-transparent border border-[#131725] to-primary-900 px-4 h-16 w-full flex items-center text-sm' />
-                        <div className="flex-[2] flex items-center gap-4 md:gap-10">
-                            <input type="tel" name="" id="" onChange={(e) => { setInputs({ ...inputs, contactPhoneNumber: e.target.value }) }} value={inputs.contactPhoneNumber}
-                                placeholder='Phone number' className='rounded-[10px] bg-transparent border border-[#131725] to-primary-900 px-4 h-16 w-full flex items-center text-sm' />
-                            <input type="tel" name="" id="" onChange={(e) => { setInputs({ ...inputs, contactAltPhoneNumber: e.target.value }) }} value={inputs.contactAltPhoneNumber}
-                                placeholder='Alternative phone number' className='rounded-[10px] bg-transparent border border-[#131725] to-primary-900 px-4 h-16 w-full flex items-center text-sm' />
                         </div>
                     </div>
                 </div>
@@ -186,8 +173,8 @@ export default function Metadata({ children }) {
 
                 <div className="mb-12">
                     <h1 className="text-primary-900 text-lg font-bold mb-7">Uploaded document</h1>
-                    <div className="flex flex-col md:flex-row items-center gap-4 md:gap-16">
-                        <label htmlFor="cert" className='border-2 border-dashed border-primary-900 text-primary-900 py-4 px-8 w-[200px] md:w-full rounded-[10px]'>
+                    <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 lg:gap-16 xl:gap-32">
+                        <label htmlFor="cert" className='border-2 border-dashed border-primary-900 text-primary-900 text-xs lg:text-sm py-4 px-4 xl:px-8 w-[200px] md:w-full rounded-[10px]'>
                             <h3 className='mb-2'>Certificate of craft {cert?.name && `| ${cert?.name}`}</h3>
                             <div className="flex items-center gap-4">
                                 <Image src={'/images/icons/plus-circle.svg'} alt="" width={20} height={20} />
@@ -196,15 +183,15 @@ export default function Metadata({ children }) {
                         </label>
                         <input type="file" name="" id="cert" hidden onChange={(e) => { setCert(e.target.files[0]) }} />
 
-                        <label htmlFor="ref" className='border-2 border-dashed border-primary-900 text-primary-900 py-4 px-8 w-[200px] md:w-full rounded-[10px]'>
-                            <h3 className='mb-2'>Reference from any client letter {ref?.name && `| ${ref?.name}`}</h3>
+                        <label htmlFor="ref" className='border-2 border-dashed border-primary-900 text-primary-900 text-xs lg:text-sm py-4 px-4 xl:px-8 w-[200px] md:w-full rounded-[10px]'>
+                            <h3 className='mb-2 flex overflow-hidden'>Reference from any client letter {ref?.name && `| ${ref?.name}`}</h3>
                             <div className="flex items-center gap-4">
                                 <Image src={'/images/icons/plus-circle.svg'} alt="" width={20} height={20} />
                                 <span>Add document</span>
                             </div>
                         </label>
                         <input type="file" name="" id="ref" hidden onChange={(e) => { setRef(e.target.files[0]) }} />
-                        <label htmlFor="idCard" className='border-2 border-dashed border-primary-900 text-primary-900 py-4 px-8 w-[200px] md:w-full rounded-[10px]'>
+                        <label htmlFor="idCard" className='border-2 border-dashed border-primary-900 text-primary-900 text-xs lg:text-sm py-4 px-4 xl:px-8 w-[200px] md:w-full rounded-[10px]'>
                             <h3 className='mb-2'>Picture of identity card {idCard?.name && `| ${idCard?.name}`}</h3>
                             <div className="flex items-center gap-4">
                                 <Image src={'/images/icons/plus-circle.svg'} alt="" width={20} height={20} />
