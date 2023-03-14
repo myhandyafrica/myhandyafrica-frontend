@@ -153,7 +153,7 @@ export default function Metadata({ children }) {
                                 options={options.SkillOptions} />}
                         </div>
 
-                        <div className="relative w-full">
+                        <div className="relative w-full hidden md:block">
                             <input type="text" readOnly onClick={() => setShowYOEOptions(true)} value={inputs.YOE}
                                 placeholder='Years of experience' className='rounded-[10px] bg-transparent border border-[#131725] to-primary-900 px-4 h-16 w-full flex items-center text-sm' />
                             <Image src="/images/icons/caret-down.svg" alt="" width={14} height={14} className={`absolute top-[50%] translate-y-[-50%] right-4 cursor-pointer ${showYOEOptions && 'rotate-180'}`} onClick={() => setShowYOEOptions(!showYOEOptions)} />
@@ -168,6 +168,18 @@ export default function Metadata({ children }) {
                     <div className="flex items-center gap-4 md:gap-10">
                         <input type="text" name="" id="" onChange={(e) => { setInputs({ ...inputs, certifications: e.target.value }) }} value={inputs.certifications}
                             placeholder='Certifications' className='rounded-[10px] bg-transparent border border-[#131725] to-primary-900 px-4 h-16 w-full md:w-2/3 flex items-center text-sm' />
+
+                        <div className="relative w-full md:hidden">
+                            <input type="text" readOnly onClick={() => setShowYOEOptions(true)} value={inputs.YOE}
+                                placeholder='Years of experience' className='rounded-[10px] bg-transparent border border-[#131725] to-primary-900 px-4 h-16 w-full flex items-center text-sm' />
+                            <Image src="/images/icons/caret-down.svg" alt="" width={14} height={14} className={`absolute top-[50%] translate-y-[-50%] right-4 cursor-pointer ${showYOEOptions && 'rotate-180'}`} onClick={() => setShowYOEOptions(!showYOEOptions)} />
+                            {showYOEOptions && <OptionsComp
+                                setValue={setInputs}
+                                inputs={inputs}
+                                setKey={'YOE'}
+                                setClose={setShowYOEOptions}
+                                options={options.YOEOptions} />}
+                        </div>
                     </div>
                 </div>
 
