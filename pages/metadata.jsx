@@ -211,7 +211,7 @@ export default function Metadata({ children }) {
 
 const OptionsComp = ({ options, setClose, setValue, setKey, inputs }) => {
     return (
-        <div className="absolute top-[4rem] left-0 w-full min-h-[100px] bg-secondary text-primary-900 rounded-[10px] shadow-2xl flex flex-col gap-0 py-4 max-h-52 overflow-y-auto">
+        <div className="absolute top-[4rem] z-10 left-0 w-full min-h-[100px] bg-secondary text-primary-900 rounded-[10px] shadow-2xl flex flex-col gap-0 py-4 max-h-52 overflow-y-auto">
             {options?.map(option => {
                 return (
                     <div

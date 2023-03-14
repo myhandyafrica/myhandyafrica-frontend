@@ -17,11 +17,11 @@ export default function Header({ auth }) {
     }, [isClickedOutside])
 
 
-    return (<div ref={parentRef} className="sticky top-0 bg-secondary">
+    return (<div ref={parentRef} className="sticky z-50 top-0 bg-secondary">
         {showMobileMenu &&
             <div className=''>
-                <div className="fixed top-0 left-0 w-full h-screen bg-black/50"></div>
-                <div className="fixed top-0 right-0 w-[266px] h-screen bg-primary-900 text-white pl-[15px]">
+                <div className="fixed z-50 top-0 left-0 w-full h-screen bg-black/50"></div>
+                <div className="fixed z-50 top-0 right-0 w-[266px] h-screen bg-primary-900 text-white pl-[15px]">
                     <div className="flex justify-end my-[22px] mr-[25px]">
                         <Image src="/images/Close.svg" alt="" width={24} height={24} onClick={() => setShowMobileMenu(false)} />
                     </div>
@@ -42,7 +42,9 @@ export default function Header({ auth }) {
 
         <header className="">
             <nav className="flex justify-between items-center py-5 md:pr-20 px-[24px] md:px-[49px]">
-                <Image src="/images/logo 1.png" alt="" width={120} height={55} className="w-[45px] md:w-[120px] h-[fit-content]" />
+                <Link href="/" className="">
+                    <Image src="/images/logo 1.png" alt="" width={120} height={55} className="w-[45px] md:w-[120px] h-[fit-content]" />
+                </Link>
 
                 <div className={`${auth && 'lg:hidden'} flex gap-5 lg:gap-10 items-center`}>
                     <Image src="/images/Search.svg" alt="" width={24} height={24} className="-mb-1" onClick={() => setShowSearchModal(!showSearchModal)} />
