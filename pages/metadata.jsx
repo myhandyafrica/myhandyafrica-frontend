@@ -92,7 +92,7 @@ export default function Metadata({ children }) {
                     <div className="flex flex-col md:flex-row items-center gap-4 md:gap-10">
                         <input type="text" name="" id="" onChange={(e) => { setInputs({ ...inputs, address: e.target.value }) }} value={inputs.address}
                             placeholder='Full Address' className='md:flex-1 rounded-[10px] bg-transparent border border-[#131725] to-primary-900 px-4 h-16 w-full flex items-center text-sm' />
-                        <div className="flex-[2] flex items-center gap-4 md:gap-10">
+                        <div className="mt-4 md:mt-0 flex-[2] flex items-center gap-4 md:gap-10">
                             <div className="relative w-full">
                                 <input type="text" readOnly onClick={() => setShowStateOptions(true)} value={inputs.state}
                                     placeholder='State' className='rounded-[10px] bg-transparent border border-[#131725] to-primary-900 px-4 h-16 w-full flex items-center text-sm' />
@@ -171,7 +171,7 @@ export default function Metadata({ children }) {
                     </div>
                 </div>
 
-                <div className="mb-12">
+                <div className="hidden mb-12">
                     <h1 className="text-primary-900 text-lg font-bold mb-7">Uploaded document</h1>
                     <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 lg:gap-16 xl:gap-32">
                         <label htmlFor="cert" className='border-2 border-dashed border-primary-900 text-primary-900 text-xs lg:text-sm py-4 px-4 xl:px-8 w-[200px] md:w-full rounded-[10px]'>
@@ -202,7 +202,40 @@ export default function Metadata({ children }) {
                     </div>
                 </div>
 
-                <button className="mt-20 mb-10 rounded-[10px] bg-transparent border border-[#131725] to-primary-900 px-4 h-16 w-full md:w-[200px] flex items-center justify-center text-lg font-bold">Save</button>
+                <div className="mb-12">
+                    <h1 className="text-primary-900 text-lg font-bold mb-7">Uploaded document</h1>
+                    <div className="flex items-center gap-2 md:gap-8 lg:gap-16 xl:gap-32">
+                        <label htmlFor="cert" className='border-2 border-dashed border-primary-900 text-primary-900 text-[0.5rem] lg:text-sm py-2 md:py-4 px-1 md:px-4 xl:px-8 w-[200px] md:w-full rounded-[10px]'>
+                            <h3 className='mb-2'>Certificate of craft {cert?.name && `| ${cert?.name}`}</h3>
+                            <div className="flex items-center gap-4">
+                                <Image src={'/images/icons/plus-circle.svg'} alt="" width={20} height={20} />
+                                <span>Add document</span>
+                            </div>
+                        </label>
+                        <input type="file" name="" id="cert" hidden onChange={(e) => { setCert(e.target.files[0]) }} />
+
+                        <label htmlFor="ref" className='border-2 border-dashed border-primary-900 text-primary-900 text-[0.4rem] lg:text-sm py-2 md:py-4 px-1 md:px-4 xl:px-8 w-[200px] md:w-full rounded-[10px]'>
+                            <h3 className='mb-2 flex overflow-hidden'>Reference from any client letter {ref?.name && `| ${ref?.name}`}</h3>
+                            <div className="flex items-center gap-4">
+                                <Image src={'/images/icons/plus-circle.svg'} alt="" width={20} height={20} />
+                                <span>Add document</span>
+                            </div>
+                        </label>
+                        <input type="file" name="" id="ref" hidden onChange={(e) => { setRef(e.target.files[0]) }} />
+                        <label htmlFor="idCard" className='border-2 border-dashed border-primary-900 text-primary-900 text-[0.5rem] lg:text-sm py-2 md:py-4 px-1 md:px-4 xl:px-8 w-[200px] md:w-full rounded-[10px]'>
+                            <h3 className='mb-2'>Picture of identity card {idCard?.name && `| ${idCard?.name}`}</h3>
+                            <div className="flex items-center gap-4">
+                                <Image src={'/images/icons/plus-circle.svg'} alt="" width={20} height={20} />
+                                <span>Add document</span>
+                            </div>
+                        </label>
+                        <input type="file" name="" id="idCard" hidden onChange={(e) => { setIdCard(e.target.files[0]) }} />
+                    </div>
+                </div>
+
+                <div className="flex justify-center md:justify-start">
+                    <button className="mt-20 mb-10 rounded-[10px] bg-transparent border border-[#131725] to-primary-900 px-4 h-16 w-[200px] flex items-center justify-center text-lg font-bold">Save</button>
+                </div>
 
             </form>
         </div>
